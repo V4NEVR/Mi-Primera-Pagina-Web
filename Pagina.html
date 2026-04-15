@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Observatorio Selene | Centro de Investigación Lunar</title>
+    <style>
+        /* Estilos Base */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #0b0c10;
+            color: #c5c6c7;
+            scroll-behavior: smooth;
+        }
+
+        /* Navegación */
+        nav {
+            background: rgba(11, 12, 16, 0.95);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #1f2833;
+            text-align: center;
+        }
+
+        nav a {
+            color: #66fcf1;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        /* Encabezado */
+        header {
+            text-align: center;
+            padding: 140px 20px 80px 20px;
+            background: radial-gradient(circle at center, #1f2833 0%, #0b0c10 100%);
+        }
+
+        h1 {
+            color: #66fcf1;
+            font-size: 3.5rem;
+            margin: 0;
+            letter-spacing: 2px;
+            animation: fadeIn 2s ease-in;
+        }
+
+        .tagline {
+            color: #45a29e;
+            font-size: 1.2rem;
+            margin-top: 10px;
+            animation: slideUp 1.5s ease-out;
+        }
+
+        /* Animación de la Luna */
+        .moon-container {
+            display: flex;
+            justify-content: center;
+            margin: 50px 0;
+        }
+
+        .moon {
+            width: 150px;
+            height: 150px;
+            background-color: #e0e2e4;
+            border-radius: 50%;
+            box-shadow: inset -20px -20px 40px rgba(0,0,0,0.6), 0 0 50px rgba(102, 252, 241, 0.3);
+            animation: float 4s ease-in-out infinite;
+            position: relative;
+        }
+
+        .moon::after {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 20%;
+            width: 25px;
+            height: 25px;
+            background: rgba(0,0,0,0.1);
+            border-radius: 50%;
+            box-shadow: 40px 30px 0 5px rgba(0,0,0,0.05), 20px 60px 0 -5px rgba(0,0,0,0.1);
+        }
+
+        /* Secciones */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        h2 {
+            color: #66fcf1;
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #1f2833;
+            display: inline-block;
+            width: 100%;
+            padding-bottom: 15px;
+        }
+
+        /* Fases Lunares */
+        .phases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .phase-card {
+            background: #1f2833;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .phase-card:hover {
+            transform: translateY(-10px);
+            border: 1px solid #66fcf1;
+        }
+
+        .phase-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Datos Curiosos */
+        .facts-list {
+            background: rgba(31, 40, 51, 0.5);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #45a29e;
+        }
+
+        .facts-list li {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            list-style: none;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .facts-list li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: #66fcf1;
+        }
+
+        /* Mapa */
+        .map-box {
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid #1f2833;
+            margin-top: 30px;
+        }
+
+        /* Animaciones */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        footer {
+            background: #0b0c10;
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid #1f2833;
+            color: #45a29e;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#fases">Fases</a>
+        <a href="#datos">Curiosidades</a>
+        <a href="#ubicacion">Ubicación</a>
+    </nav>
+
+    <header id="inicio">
+        <h1>OBSERVATORIO SELENE</h1>
+        <p class="tagline">Liderando la exploración astronómica en el Bajío</p>
+        <div class="moon-container">
+            <div class="moon"></div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="fases">
+            <h2>Ciclo Lunar</h2>
+            <div class="phases-grid">
+                <div class="phase-card">
+                    <span class="phase-icon">🌑</span>
+                    <h3>Luna Nueva</h3>
+                    <p>El inicio del ciclo, ideal para la observación de estrellas profundas.</p>
+                </div>
+                <div class="phase-card">
+                    <span class="phase-icon">🌓</span>
+                    <h3>Cuarto Creciente</h3>
+                    <p>Los cráteres son más visibles gracias a las sombras laterales.</p>
+                </div>
+                <div class="phase-card">
+                    <span class="phase-icon">🌕</span>
+                    <h3>Luna Llena</h3>
+                    <p>Máxima iluminación. Momento de mayor actividad en el observatorio.</p>
+                </div>
+                <div class="phase-card">
+                    <span class="phase-icon">🌗</span>
+                    <h3>Cuarto Menguante</h3>
+                    <p>Perfecta para estudiar la geología lunar del lado occidental.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="datos">
+            <h2>Datos Curiosos</h2>
+            <div class="facts-list">
+                <ul>
+                    <li><strong>Gravedad reducida:</strong> Si pesas 60kg en la Tierra, en la Luna pesarías solo 10kg.</li>
+                    <li><strong>Sin atmósfera:</strong> En la Luna no hay sonido y el cielo siempre se ve negro, incluso de día.</li>
+                    <li><strong>Huellas eternas:</strong> Las huellas de los astronautas durarán millones de años porque no hay viento que las borre.</li>
+                    <li><strong>Distancia real:</strong> La Luna se aleja de nosotros unos 3.8 centímetros cada año.</li>
+                    <li><strong>Temperaturas extremas:</strong> Puede pasar de 127°C bajo el sol a -173°C en la sombra.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="ubicacion">
+            <h2>Nuestra Ubicación</h2>
+            <p>Visítanos en nuestras instalaciones principales en León, Guanajuato. Contamos con telescopios de alta resolución abiertos al público y a la comunidad científica.</p>
+            <div class="map-box">
+                <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-101.75%2C21.05%2C-101.60%2C21.20&amp;layer=mapnik&amp;marker=21.1221%2C-101.6826" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <p style="text-align: center; margin-top: 15px;">📍 Calzada de los Héroes, Zona Centro, León, Gto.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Observatorio Selene - Centro de Divulgación Astronómica</p>
+        <p><small>León, Guanajuato, México.</small></p>
+    </footer>
+
+</body>
+</html>
